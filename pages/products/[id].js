@@ -5,8 +5,11 @@ export default function({product}) {
   const {query} = useRouter();
   return (
     <MainConteiner title={product.title}>
-      <h1>Product id - {query.id}</h1>
+      <h3>Product code: {query.id}</h3>
       <p>{product.title}</p>
+      <p>{product.description}</p>
+      <img src={product.image} style={{width: '400px'}}/>
+      <p>Price: {product.price}$</p>
     </MainConteiner>
   )
 } 

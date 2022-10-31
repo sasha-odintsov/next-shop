@@ -8,11 +8,19 @@ const Products = ({products}) => {
       <h1>
         Products
       </h1>
-      {products.map(product => 
-        <Link href={`./products/${product.id}`} key={product.id}>
-          {product.title}
-        </Link>        
-      )}
+      <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
+        {products.map(product => 
+          <div style={{margin: '30px', width: '300px', border: '1px solid #eee', padding: '10px'}}>
+            <Link href={`./products/${product.id}`} key={product.id} style={{textDecoration: 'none'}}>
+              {product.title}
+            <div style={{width: '100px', margin: '10px auto'}}>
+              <img src={product.image} style={{width: '100%'}}/>
+            </div>      
+            <p style={{textAlign: 'end'}}>Price: {product.price}$</p>
+            </Link>  
+          </div>
+        )}
+      </div>
     </MainConteiner>
   )
 }

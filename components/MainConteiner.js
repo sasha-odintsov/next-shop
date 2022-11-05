@@ -18,7 +18,7 @@ export default function MainConteiner({children, title, keywords}) {
       Products
     </Link>
   </div>
-  <div>
+  <div style={{margin: '20px 40px'}}>
     {children}
   </div>
   </>

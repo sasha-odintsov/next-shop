@@ -3,7 +3,7 @@ import Link from "next/link";
 import MainConteiner from "../components/MainConteiner";
 import Search from "../components/Search";
 
-const Products = ({products}) => {
+const Products = ({ products }) => {
   const [search, setSearch] = useState('');
   const getSearchVal = (value) => setSearch(value);
   const filteredProducts = products.filter(item => item.title.toLowerCase().includes(search.toLowerCase()))

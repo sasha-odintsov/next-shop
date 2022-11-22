@@ -4,8 +4,8 @@ import MainConteiner from "../components/MainConteiner";
 
 const Index = () => {
   return (
-    <MainConteiner title='Next Shop'>
-      <h1>Main Page</h1>
+    <MainConteiner title=''>
+      <h1 className="text-center">Main Page</h1>
     </MainConteiner>
   )
 }

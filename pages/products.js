@@ -9,26 +9,29 @@ const Products = ({products}) => {
   const filteredProducts = products.filter(item => item.title.toLowerCase().includes(search.toLowerCase()))
   
   return(
-    <MainConteiner title='Next Shop | Products'>
-      <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-        <h1>
+    <MainConteiner title=' | Products'>
+      <div className="flex justify-between items-center my-10">
+        <h1 className="font-medium">
           Products
         </h1>
           <Search value={getSearchVal}/>
       </div>
-      <div style={{display: 'flex', flexWrap: 'wrap'}}>
-        {filteredProducts.map(product => 
-          <div key={product.id} style={{margin: '30px', width: '300px', border: '1px solid #eee', padding: '10px'}}>
-            <Link href={`./products/${product.id}`} style={{textDecoration: 'none'}}>
-              {product.title}
-            <div style={{width: '100px', margin: '10px auto'}}>
-              <img src={product.image} style={{width: '100%'}}/>
-            </div>      
-            <p style={{textAlign: 'end'}}>Price: {product.price}$</p>
-            </Link>  
-          </div>
-        )}
-      </div>
+        <div className="grid md:grid-cols-3 xl:grid-cols-4 sm:grid-cols-2 gap-7 w-[95%] mx-auto">
+          {filteredProducts.map(product => 
+              <Link 
+                key={product.id} 
+                href={`./products/${product.id}`} 
+                className="flex flex-col justify-between h-full border rounded p-3 hover:shadow"
+              >
+                <div className="my-4">
+                  <img src={product.image} className="mx-auto h-28"/>
+                  <p className="text-sm text-cyan-700 mt-3 line-clamp-2 font-medium">{product.title}</p>
+                </div>
+                  <p className="text-end">Price: {product.price}$</p>    
+              </Link>  
+            
+          )}
+        </div>
     </MainConteiner>
   )
 }

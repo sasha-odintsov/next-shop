@@ -8,17 +8,38 @@ export default function MainConteiner({children, title, keywords}) {
   <Head>
     <meta keywords={"nextjs, shop, " + keywords}></meta>
     <meta content="Internet shop"></meta>
-    <title>{title}</title>
+    <title>{'Next Shop' + title}</title>
   </Head>
-  <div className={styles.navbar}>
-    <Link href="/" className={styles.navbarLink}>
-      Main
-    </Link>
-    <Link href="/products" className={styles.navbarLink}>
-      Products
-    </Link>
+  <div 
+  // className={styles.navbar}
+  className="px-10 md:px-20 py-7 bg-slate-300 flex items-center"
+  >
+    <span className="uppercase font-bold text-slate-700">next shop</span>
+    <ul className="text-slate-600 flex uppercase">
+      <li className="px-10">
+      |
+      </li>
+      <li>
+        <Link 
+          href="/" 
+          // className={styles.navbarLink}
+          className="text-sm mr-5 hover:text-white"
+        >
+        Main
+        </Link>
+      </li>
+      <li>
+        <Link 
+          href="/products" 
+          // className={styles.navbarLink}
+          className="text-sm hover:text-white"
+        >
+        Products
+        </Link>
+      </li>
+    </ul>
   </div>
-  <div style={{margin: '20px 40px'}}>
+  <div className="px-10 md:px-20 my-10">
     {children}
   </div>
   </>

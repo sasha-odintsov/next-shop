@@ -4,7 +4,7 @@ import MainConteiner from "../../components/MainConteiner";
 export default function({product}) {
   const {query} = useRouter();
   return (
-    <MainConteiner title={product.title}>
+    <MainConteiner title={' | ' + product.title}>
       <h3>Product code: {query.id}</h3>
       <p>{product.title}</p>
       <p>{product.description}</p>

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import styles from '../styles/Form.module.css';
 
 export default function Search({value}) {
   const [search, setSearch] = useState('');
@@ -7,7 +6,13 @@ export default function Search({value}) {
   
   return(
     <>
-      <input type='text' placeholder="Search..." value={search} onChange={(e) => setSearch(e.target.value)} className={styles.search}/>
+      <input 
+      type='text' 
+      placeholder="Search..." 
+      value={search} 
+      onChange={(e) => setSearch(e.target.value)} 
+      className="border rounded p-2"
+      />
     </>
   )
 }

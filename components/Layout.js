@@ -2,13 +2,13 @@ import Link from "next/link";
 import styles from '../styles/Navbar.module.css';
 import Head from "next/head";
 
-export default function MainConteiner({children, title, keywords}) {
+export default function Layout({ children }) {
   return(
   <>
   <Head>
-    <meta keywords={"nextjs, shop, " + keywords}></meta>
+    <meta keywords={"nextjs, shop"}></meta>
     <meta content="Internet shop"></meta>
-    <title>{'Next Shop' + title}</title>
+    <title>Next Shop</title>
   </Head>
   <div 
   // className={styles.navbar}

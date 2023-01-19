@@ -1,16 +1,19 @@
 import { useRouter } from "next/router";
-import MainConteiner from "../../components/MainConteiner";
+import Head from "next/head";
 
 export default function({product}) {
   const {query} = useRouter();
   return (
-    <MainConteiner title={' | ' + product.title}>
+    <>
+      <Head>
+        <title>Next Shop | {product.title}</title>
+      </Head>
       <h3>Product code: {query.id}</h3>
       <p>{product.title}</p>
       <p>{product.description}</p>
       <img src={product.image} style={{width: '400px'}}/>
       <p>Price: {product.price}$</p>
-    </MainConteiner>
+    </>
   )
 } 
 

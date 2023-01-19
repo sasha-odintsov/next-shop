@@ -1,11 +1,9 @@
-import MainConteiner from "../components/MainConteiner";
-
 export default function Error() {
   return(
-    <MainConteiner title='Error'>
+    <div className="text-center">
       <h3>
         404 | This page could not be found.
       </h3>
-    </MainConteiner>
+    </div>
   )
 }

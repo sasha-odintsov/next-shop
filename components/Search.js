@@ -1,18 +1,11 @@
-import { useState } from "react";
-
-export default function Search({value}) {
-  const [search, setSearch] = useState('');
-  value(search)
+export default function Search({ onChange }) {
   
   return(
-    <>
-      <input 
+    <input 
       type='text' 
       placeholder="Search..." 
-      value={search} 
-      onChange={(e) => setSearch(e.target.value)} 
+      onChange={(e) => onChange(e.target.value)} 
       className="border rounded p-2"
-      />
-    </>
+    />
   )
 }

@@ -4,8 +4,9 @@ import Search from "../../components/Search";
 
 const Products = ({ products }) => {
   const [search, setSearch] = useState('');
-  const getSearchVal = (value) => setSearch(value);
-  const filteredProducts = products.filter(item => item.title.toLowerCase().includes(search.toLowerCase()))
+
+  const filteredProducts = products.filter(
+    (item) => item.title.toLowerCase().includes(search.toLowerCase()));
   
   return(
     <div>
@@ -13,10 +14,10 @@ const Products = ({ products }) => {
         <h1 className="font-medium">
           Products
         </h1>
-        <Search value={getSearchVal}/>
+        <Search onChange={(value) => setSearch(value)}/>
       </div>
       <div className="grid md:grid-cols-3 xl:grid-cols-4 sm:grid-cols-2 gap-7 w-[95%] mx-auto">
-        {filteredProducts.map(product => 
+        {filteredProducts.map((product) => 
           <Link 
             key={product.id} 
             href={`./products/${product.id}`} 
@@ -26,13 +27,14 @@ const Products = ({ products }) => {
               <img src={product.image} className="mx-auto h-28"/>
               <p className="text-sm text-cyan-700 mt-3 line-clamp-2 font-medium">{product.title}</p>
             </div>
-              <p className="text-end">Price: {product.price}$</p>    
+            <p className="text-end">Price: {product.price}$</p>    
           </Link>  
         )}
       </div>
     </div>
   )
 }
+
 export default Products;
 
 export async function getStaticProps(context) {

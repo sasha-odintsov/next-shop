@@ -7,6 +7,28 @@ const Products = ({ products }) => {
 
   const filteredProducts = products.filter(
     (item) => item.title.toLowerCase().includes(search.toLowerCase()));
+
+  const highlightText = (text, highlight) => { 
+    if (!text || !highlight) return text;
+
+    const escapeRegExp = 
+      highlight.replace(/([.?*+^$[\]\\(){}|-])/g, '\\$1');
+    const parts = text.split(new RegExp(`(${escapeRegExp})`, "gi"));
+
+    return (
+      <span> 
+        {parts.map((part, i) => (
+          <span 
+            key={i} 
+            className={`${part.toLowerCase() === highlight.toLowerCase() ? "text-white bg-cyan-700": ""}`}
+          >
+            {part}
+          </span>
+          )
+        )} 
+      </span>
+    );
+  };
   
   return(
     <div>
@@ -25,7 +47,9 @@ const Products = ({ products }) => {
           >
             <div className="my-4">
               <img src={product.image} className="mx-auto h-28"/>
-              <p className="text-sm text-cyan-700 mt-3 line-clamp-2 font-medium">{product.title}</p>
+              <p className="text-sm text-cyan-700 mt-3 line-clamp-2 font-medium">
+                {highlightText(product.title, search)}
+              </p>
             </div>
             <p className="text-end">Price: {product.price}$</p>    
           </Link>  
